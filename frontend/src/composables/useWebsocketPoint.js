@@ -13,9 +13,9 @@ export function useWebsocketPoint() {
     };
 
     socket.onmessage = (event) => {
-        const [x, y] = event.data.split(',').map(parseFloat);
+        const data = JSON.parse(event.data);
 
-        point.value = [x, y];
+        point.value = [data.x, data.y];
     };
 
     return point;

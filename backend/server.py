@@ -1,7 +1,6 @@
 import asyncio
 import math
 from fastapi import FastAPI, WebSocket
-from typing import List
 
 app = FastAPI()
 
@@ -15,8 +14,10 @@ async def websocket_endpoint(websocket: WebSocket):
     try:
         while True:
             y = round(math.sin(2 * math.pi * x), 10)
-            await websocket.send_text(f"{x},{y}")
-
+            await websocket.send_json(
+                {"x": x, "y": y}
+            )
+           
             x += interval
             await asyncio.sleep(interval)
 
