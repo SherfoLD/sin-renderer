@@ -16,7 +16,7 @@ watch(() => point.value, (newPoint) => {
     return;
 
   const series = chart.series[0];
-  const shift = series.data.length > 100;
+  const shift = series.data.length > 200;
 
   series.addPoint(newPoint, true, shift);
 }, {deep: true});

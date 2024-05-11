@@ -8,7 +8,7 @@ app = FastAPI()
 @app.websocket("/sin")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
-    frequency = 4
+    frequency = 200
     interval = 1 / frequency
     x = 0
 
