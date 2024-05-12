@@ -1,0 +1,8 @@
+FROM python:3.12-slim
+
+WORKDIR /sin_renderer
+COPY . .
+
+RUN pip install --no-cache-dir fastapi
+
+CMD ["fastapi", "run", "server.py", "--port", "8080"]
